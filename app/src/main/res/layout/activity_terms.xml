@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white">
+
+    <!-- Back Button and Title -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="60dp">
+
+        <ImageView
+            android:id="@+id/back_button"
+            android:layout_width="34dp"
+            android:layout_height="34dp"
+            android:src="@drawable/ic_back"
+            android:padding="4dp"
+            android:contentDescription="Back"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Terms and Conditions"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:paddingStart="10dp"/>
+    </LinearLayout>
+
+    <!-- Line Above the Title -->
+    <ScrollView
+        android:id="@+id/help_scroll_vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="10dp"
+        android:scrollbars="none"
+        android:background="@color/white"
+        android:padding="16dp"
+        android:elevation="4dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1. Introduction"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="• By using CodeQuest, you agree to these Terms and Conditions. If you do not agree, please do not use the app."
+                android:textSize="18sp"
+                android:textColor="@color/gray"
+                android:padding="10dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2. User Responsibilities"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="• You must provide accurate information while signing up.\n• Do not use the app for illegal or unethical purposes.\n• Do not copy or misuse challenges, solutions, or other content."
+                android:textSize="18sp"
+                android:textColor="@color/gray"
+                android:padding="10dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="3. Content and Ownership"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="• CodeQuest owns all challenges and materials provided in the app.\n• Your submitted solutions remain your intellectual property."
+                android:textSize="18sp"
+                android:textColor="@color/gray"
+                android:padding="10dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="4. Limitations and Liability"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="• We do not guarantee that CodeQuest will be error-free or available at all times.\n• We are not responsible for any losses caused by app malfunctions."
+                android:textSize="18sp"
+                android:textColor="@color/gray"
+                android:padding="10dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="5. Changes to Terms"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="• We may update these terms anytime. Continued use of CodeQuest means you accept the changes."
+                android:textSize="18sp"
+                android:textColor="@color/gray"
+                android:padding="10dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="6. Contact Us"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="• For questions, contact support@codequest.com."
+                android:textSize="18sp"
+                android:textColor="@color/gray"
+                android:padding="10dp" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

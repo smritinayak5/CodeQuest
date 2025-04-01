@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@drawable/bg_welcome">
+
+
+<ImageView
+        android:id="@+id/logo"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src="@drawable/codequest_logo"
+        android:layout_marginBottom="200dp"/>
+
+    <TextView
+        android:id="@+id/welcome_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="WELCOME"
+        android:textColor="@color/purple"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="50dp"/>
+
+    <Button
+        android:id="@+id/sign_in_button"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        android:text="SIGN IN"
+        android:backgroundTint="@color/purple"
+        android:textColor="@color/white"
+        android:layout_marginBottom="10dp"/>
+
+    <Button
+        android:id="@+id/sign_up_button"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        android:text="SIGN UP"
+        android:backgroundTint="@color/purple"
+        android:textColor="@color/white"/>
+</LinearLayout>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.CodingChallengesApp"
+        tools:targetApi="31">
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".WelcomeActivity"/>
+        <activity android:name=".SignUpActivity"/>
+        <activity android:name=".SignInActivity"/>
+        <activity android:name=".ChangePassword" />
+        <activity android:name=".GreetingScreenActivity"/>
+        <activity android:name=".EditProfile" />
+        <activity android:name=".HomeActivity" />
+        <activity android:name=".MenuActivity" />
+        <activity android:name=".SettingsActivity" />
+        <activity android:name=".HelpActivity" />
+        <activity android:name=".Notification" />
+        <activity android:name=".TermsActivity" />
+        <activity android:name=".PrivacyPolicyActivity" />
+        <activity android:name=".FAQActivity" />
+        <activity android:name=".ResetPasswordActivity" />
+        <activity android:name=".PremiumActivity" />
+        <activity android:name=".ProgressReportActivity" />
+        <activity android:name=".AllChallengesActivity" />
+        <activity android:name=".LevelJava" />
+        <activity android:name=".BasicJava" />
+        <activity android:name=".ModerateJava" />
+        <activity android:name=".AdvanceJava" />
+        <activity android:name=".LevelCpp" />
+        <activity android:name=".BasicCpp" />
+        <activity android:name=".ModerateCpp" />
+        <activity android:name=".AdvanceCpp" />
+        <activity android:name=".LevelPython" />
+        <activity android:name=".BasicPython" />
+        <activity android:name=".ModeratePython" />
+        <activity android:name=".AdvancePython" />
+        <activity android:name=".TestLive" />
+        <activity android:name=".Submission" />
+
+    </application>
+
+</manifest>

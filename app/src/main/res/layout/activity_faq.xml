@@ -1,0 +1,98 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@android:color/white">
+
+    <!-- Back Button and Title -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginTop="60dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp">
+
+        <ImageView
+            android:id="@+id/back_button"
+            android:layout_width="34dp"
+            android:layout_height="34dp"
+            android:src="@drawable/ic_back"
+            android:padding="4dp"
+            android:contentDescription="Back"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="FAQs"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:paddingStart="10dp"/>
+    </LinearLayout>
+
+    <!-- FAQ List -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/white"
+        android:padding="16dp"
+        android:layout_marginTop="20dp"
+        android:elevation="4dp">
+
+        <TextView
+            android:id="@+id/reset_password"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="How Do I Reset My Password?"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="#444"
+            android:paddingVertical="16dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:layout_marginBottom="2dp"/>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="How Can I Update My Profile Information?"
+            android:textSize="16sp"
+            android:textColor="#444"
+            android:paddingVertical="16dp"
+            android:layout_marginBottom="2dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="What Should I Do If I Encounter A System Error?"
+            android:textSize="16sp"
+            android:textColor="#444"
+            android:paddingVertical="16dp"
+            android:layout_marginBottom="2dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="How Do I Contact Technical Support For Issues?"
+            android:textSize="16sp"
+            android:textColor="#444"
+            android:paddingVertical="16dp"
+            android:layout_marginBottom="2dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="How Do I Navigate Between Different Sections Of The System?"
+            android:textSize="16sp"
+            android:textColor="#444"
+            android:paddingVertical="16dp"
+            android:layout_marginBottom="2dp"/>
+
+    </LinearLayout>
+
+</LinearLayout>

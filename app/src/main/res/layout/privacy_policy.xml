@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white">
+
+    <!-- Back Button and Title -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="60dp">
+
+        <ImageView
+            android:id="@+id/back_button"
+            android:layout_width="34dp"
+            android:layout_height="34dp"
+            android:src="@drawable/ic_back"
+            android:padding="4dp"
+            android:contentDescription="Back"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Privacy Policy"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:paddingStart="10dp"/>
+    </LinearLayout>
+
+    <ScrollView
+        android:id="@+id/help_scroll_vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="10dp"
+        android:scrollbars="none"
+        android:background="@color/white"
+        android:padding="16dp"
+        android:elevation="4dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Welcome to CodeQuest! Your privacy is important to us. This Privacy Policy explains how we collect, use, and protect your personal information."
+                android:textSize="16sp"
+                android:textStyle="italic|bold"
+                android:padding="10dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1. Information We Collect"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="• Your name, email, and profile details when you register.\n• Usage data such as solved challenges, scores, and preferences.\n• Optional feedback or support queries you send us."
+                android:textSize="18sp"
+                android:textColor="@color/gray"
+                android:padding="10dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2. How We Use Your Information"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="• To provide and improve the app experience.\n• To personalize coding challenges based on your progress.\n• To send updates, notifications, or customer support responses."
+                android:textSize="18sp"
+                android:textColor="@color/gray"
+                android:padding="10dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="3. Data Security"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="• Your data is securely stored and protected.\n• We do not share your information with third parties for marketing purposes.\n• Access to your data is restricted to authorized personnel only."
+                android:textSize="18sp"
+                android:textColor="@color/gray"
+                android:padding="10dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="4. Third-Party Services"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="• We may use third-party tools for analytics, authentication, or ads.\n• These services follow their own privacy policies, which we encourage you to review."
+                android:textSize="18sp"
+                android:textColor="@color/gray"
+                android:padding="10dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="5. Your Privacy Choices"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="• You can update or delete your account anytime in settings.\n• You can contact us if you have any privacy concerns."
+                android:textSize="18sp"
+                android:textColor="@color/gray"
+                android:padding="10dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="6. Updates to This Policy"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="• We may update this policy from time to time.\n• We will notify you of major changes through the app."
+                android:textSize="18sp"
+                android:textColor="@color/gray"
+                android:padding="10dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="7. Contact Us"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:textColor="@color/black"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="• If you have any questions, email us at support@codequest.com."
+                android:textSize="18sp"
+                android:textColor="@color/gray"
+                android:padding="10dp"/>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
