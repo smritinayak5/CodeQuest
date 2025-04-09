@@ -19,6 +19,7 @@ public class SignUpActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
 
+        // Initialize views
         username = findViewById(R.id.etUsername);
         email = findViewById(R.id.etEmail);
         phone = findViewById(R.id.etPhone);
@@ -29,29 +30,38 @@ public class SignUpActivity extends AppCompatActivity {
         togglePassword = findViewById(R.id.ivTogglePassword);
         toggleConfirmPassword = findViewById(R.id.ivToggleConfirmPassword);
 
+        // Sign-Up button click listener
         signUpButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String user = username.getText().toString();
-                String mail = email.getText().toString();
-                String phoneNum = phone.getText().toString();
-                String pass = password.getText().toString();
-                String confirmPass = confirmPassword.getText().toString();
+                String user = username.getText().toString().trim();
+                String mail = email.getText().toString().trim();
+                String phoneNum = phone.getText().toString().trim();
+                String pass = password.getText().toString().trim();
+                String confirmPass = confirmPassword.getText().toString().trim();
 
                 if (user.isEmpty() || mail.isEmpty() || phoneNum.isEmpty() || pass.isEmpty() || confirmPass.isEmpty()) {
                     Toast.makeText(SignUpActivity.this, "All fields are required!", Toast.LENGTH_SHORT).show();
                 } else if (!pass.equals(confirmPass)) {
                     Toast.makeText(SignUpActivity.this, "Passwords do not match!", Toast.LENGTH_SHORT).show();
                 } else {
-                    Toast.makeText(SignUpActivity.this, "Sign-Up Successful!", Toast.LENGTH_SHORT).show();
-                    // Navigate to Sign-In Page after successful registration
-                    Intent intent = new Intent(SignUpActivity.this, SignInActivity.class);
-                    startActivity(intent);
-                    finish();
+                    DBHelper dbHelper = new DBHelper(SignUpActivity.this);
+
+                    boolean inserted = dbHelper.insertUser(user, mail, phoneNum, pass);
+
+                    if (inserted) {
+                        Toast.makeText(SignUpActivity.this, "User Registered", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(SignUpActivity.this, SignInActivity.class);
+                        startActivity(intent);
+                        finish();
+                    } else {
+                        Toast.makeText(SignUpActivity.this, "Registration Failed! Email or Phone already exists.", Toast.LENGTH_SHORT).show();
+                    }
                 }
             }
         });
 
+        // Back button click listener
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -59,6 +69,7 @@ public class SignUpActivity extends AppCompatActivity {
             }
         });
 
+        // Password visibility toggle
         togglePassword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -74,12 +85,13 @@ public class SignUpActivity extends AppCompatActivity {
         });
     }
 
+    // Show/hide password
     private void togglePasswordVisibility(EditText editText) {
-        if (editText.getInputType() == 144) { // 144 = TYPE_TEXT_VARIATION_VISIBLE_PASSWORD
-            editText.setInputType(129); // 129 = TYPE_CLASS_TEXT | TYPE_TEXT_VARIATION_PASSWORD
+        if (editText.getInputType() == 144) { // TYPE_TEXT_VARIATION_VISIBLE_PASSWORD
+            editText.setInputType(129);       // TYPE_CLASS_TEXT | TYPE_TEXT_VARIATION_PASSWORD
         } else {
             editText.setInputType(144);
         }
-        editText.setSelection(editText.getText().length()); // Keep cursor at the end
+        editText.setSelection(editText.getText().length()); // Keep cursor at end
     }
 }

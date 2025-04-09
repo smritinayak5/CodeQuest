@@ -19,6 +19,7 @@ public class SignInActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_in);
 
+        // Initialize UI components
         username = findViewById(R.id.etUsername);
         password = findViewById(R.id.etPassword);
         signInButton = findViewById(R.id.btnSignIn);
@@ -26,6 +27,7 @@ public class SignInActivity extends AppCompatActivity {
         togglePassword = findViewById(R.id.ivTogglePassword);
         tvForgotPassword = findViewById(R.id.tvForgotPassword);
 
+        // Sign-In Button Click
         signInButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -35,15 +37,22 @@ public class SignInActivity extends AppCompatActivity {
                 if (user.isEmpty() || pass.isEmpty()) {
                     Toast.makeText(SignInActivity.this, "All fields are required!", Toast.LENGTH_SHORT).show();
                 } else {
-                    Toast.makeText(SignInActivity.this, "Sign-In Successful!", Toast.LENGTH_SHORT).show();
-                    // Navigate to Sign-In Page after successful registration
-                    Intent intent = new Intent(SignInActivity.this, GreetingScreenActivity.class);
-                    startActivity(intent);
-                    finish();
+                    DBHelper dbHelper = new DBHelper(SignInActivity.this);
+                    boolean valid = dbHelper.checkUser(user, pass);
+
+                    if (valid) {
+                        Toast.makeText(SignInActivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(SignInActivity.this, GreetingScreenActivity.class);
+                        startActivity(intent);
+                        finish();
+                    } else {
+                        Toast.makeText(SignInActivity.this, "Invalid Credentials", Toast.LENGTH_SHORT).show();
+                    }
                 }
             }
         });
 
+        // Back Button Click
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -51,6 +60,7 @@ public class SignInActivity extends AppCompatActivity {
             }
         });
 
+        // Toggle Password Visibility
         togglePassword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -58,23 +68,23 @@ public class SignInActivity extends AppCompatActivity {
             }
         });
 
-        // Navigate to ChangePassword activity when "Forgot Password?" is clicked
+        // Forgot Password Click
         tvForgotPassword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(SignInActivity.this, ChangePassword.class);
-                startActivity(intent); // Open the Change Password screen
+                startActivity(intent);
             }
         });
-
     }
 
+    // Password show/hide logic
     private void togglePasswordVisibility(EditText editText) {
-        if (editText.getInputType() == 144) { // 144 = TYPE_TEXT_VARIATION_VISIBLE_PASSWORD
-            editText.setInputType(129); // 129 = TYPE_CLASS_TEXT | TYPE_TEXT_VARIATION_PASSWORD
+        if (editText.getInputType() == 144) {
+            editText.setInputType(129);
         } else {
             editText.setInputType(144);
         }
-        editText.setSelection(editText.getText().length()); // Keep cursor at the end
+        editText.setSelection(editText.getText().length());
     }
 }
