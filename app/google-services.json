@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "537607124260",
+    "project_id": "codingchallengesapp-d9af3",
+    "storage_bucket": "codingchallengesapp-d9af3.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:537607124260:android:909941ee890fdb0b0befb1",
+        "android_client_info": {
+          "package_name": "com.example.codingchallengesapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDZHYHWi6wOCLyxERLcjge4NUrNW5hE4vY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

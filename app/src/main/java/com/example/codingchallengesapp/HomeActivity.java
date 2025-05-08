@@ -5,100 +5,101 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.*;
 
 public class HomeActivity extends AppCompatActivity {
+
+    private FirebaseAuth mAuth;
+    private FirebaseFirestore db;
+    private TextView greetingText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        // Set up menu button to open MenuActivity
+        // Initialize Firebase
+        mAuth = FirebaseAuth.getInstance();
+        db = FirebaseFirestore.getInstance();
+        greetingText = findViewById(R.id.greeting_text); // ID of the TextView saying "Hi Alex"
+
+        // Set user greeting
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        if (currentUser != null) {
+            String uid = currentUser.getUid();
+            db.collection("users").document(uid).get()
+                    .addOnSuccessListener(documentSnapshot -> {
+                        if (documentSnapshot.exists()) {
+                            String name = documentSnapshot.getString("name");
+                            greetingText.setText("Hi " + name);
+                        } else {
+                            greetingText.setText("Hi there");
+                        }
+                    })
+                    .addOnFailureListener(e -> greetingText.setText("Hi User"));
+        } else {
+            greetingText.setText("Hi Guest");
+        }
+
+        // Menu
         ImageButton menuButton = findViewById(R.id.menu_button);
-        menuButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(HomeActivity.this, MenuActivity.class);
-                startActivity(intent);
-            }
+        menuButton.setOnClickListener(v -> {
+            Intent intent = new Intent(HomeActivity.this, MenuActivity.class);
+            startActivity(intent);
         });
 
-        // Open Settings Activity when Settings Icon is Clicked
-        ImageView settingIcon = findViewById(R.id.nav_settings);  // Icon with id 'nav_tasks'
-        settingIcon.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(HomeActivity.this, SettingsActivity.class);
-                startActivity(intent);
-            }
+        // Settings
+        ImageView settingIcon = findViewById(R.id.nav_settings);
+        settingIcon.setOnClickListener(v -> {
+            Intent intent = new Intent(HomeActivity.this, SettingsActivity.class);
+            startActivity(intent);
         });
 
-        // Set up the test icon (nav_tasks) to open the AllChallengesActivity
-        ImageView testIcon = findViewById(R.id.nav_tasks);  // Icon with id 'nav_tasks'
-        testIcon.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Open All Challenges Test Page
-                Intent intent = new Intent(HomeActivity.this, AllChallengesActivity.class);
-                startActivity(intent);
-            }
+        // Tasks / All Challenges
+        ImageView testIcon = findViewById(R.id.nav_tasks);
+        testIcon.setOnClickListener(v -> {
+            Intent intent = new Intent(HomeActivity.this, AllChallengesActivity.class);
+            startActivity(intent);
         });
 
-        // Set up the notification icon (nav_notification) to open the Notification
-        ImageView notificationIcon = findViewById(R.id.nav_notifications);  // Icon with id 'nav_notification'
-        notificationIcon.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Open All Notification Page
-                Intent intent = new Intent(HomeActivity.this, Notification.class);
-                startActivity(intent);
-            }
+        // Notifications
+        ImageView notificationIcon = findViewById(R.id.nav_notifications);
+        notificationIcon.setOnClickListener(v -> {
+            Intent intent = new Intent(HomeActivity.this, Notification.class);
+            startActivity(intent);
         });
 
-        // Set up the profile icon (nav_profile") to open the AllChallengesActivity
-        ImageView profileIcon = findViewById(R.id.nav_profile);  // Icon with id 'nav_profile'
-        profileIcon.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Open Edit Profile Page
-                Intent intent = new Intent(HomeActivity.this, EditProfile.class);
-                startActivity(intent);
-            }
+        // Profile
+        ImageView profileIcon = findViewById(R.id.nav_profile);
+        profileIcon.setOnClickListener(v -> {
+            Intent intent = new Intent(HomeActivity.this, EditProfile.class);
+            startActivity(intent);
         });
 
-        // Handle Java Challenge Card click to open All Java Page
+        // Java Card
         CardView javaChallengeCard = findViewById(R.id.java_challenge);
-        javaChallengeCard.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Open JavaAll Activity when the card is clicked
-                Intent intent = new Intent(HomeActivity.this, LevelJava.class);
-                startActivity(intent);
-            }
+        javaChallengeCard.setOnClickListener(v -> {
+            Intent intent = new Intent(HomeActivity.this, LevelJava.class);
+            startActivity(intent);
         });
 
-        // Handle C++ Challenge Card click to open All Level Page
+        // C++ Card
         CardView cppChallengeCard = findViewById(R.id.cpp_challenge);
-        cppChallengeCard.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Open AllLevel Activity when the card is clicked
-                Intent intent = new Intent(HomeActivity.this, LevelCpp.class);
-                startActivity(intent);
-            }
+        cppChallengeCard.setOnClickListener(v -> {
+            Intent intent = new Intent(HomeActivity.this, LevelCpp.class);
+            startActivity(intent);
         });
 
-        // Handle Python Challenge Card click to open All Level Page
+        // Python Card
         CardView pythonChallengeCard = findViewById(R.id.python_challenge_card);
-        pythonChallengeCard.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Open AllLevel Activity when the card is clicked
-                Intent intent = new Intent(HomeActivity.this, LevelPython.class);
-                startActivity(intent);
-            }
+        pythonChallengeCard.setOnClickListener(v -> {
+            Intent intent = new Intent(HomeActivity.this, LevelPython.class);
+            startActivity(intent);
         });
     }
 }

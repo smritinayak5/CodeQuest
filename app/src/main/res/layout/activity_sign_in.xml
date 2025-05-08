@@ -23,28 +23,6 @@
             android:layout_marginStart="10dp"
             android:contentDescription="Back Button"/>
 
-        <!-- Logo -->
-        <ImageView
-            android:id="@+id/logo"
-            android:layout_width="120dp"
-            android:layout_height="120dp"
-            android:src="@drawable/codequest_logo"
-            android:layout_marginTop="20dp"
-            android:layout_gravity="center"/>
-
-        <!-- Sign In Title -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="SIGN IN"
-            android:textColor="@color/purple"
-            android:textSize="22sp"
-            android:textStyle="bold"
-            android:layout_marginTop="200dp"
-            android:layout_marginBottom="15dp"
-            android:gravity="center"
-            android:layout_gravity="center"/>
-
         <!-- Username Field -->
         <LinearLayout
             android:layout_width="match_parent"
@@ -52,12 +30,12 @@
             android:orientation="vertical"
             android:background="@drawable/input_field_background"
             android:padding="15dp"
-            android:layout_marginTop="20dp">
+            android:layout_marginTop="425dp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="User Name"
+                android:text="User's Email"
                 android:textSize="14sp"
                 android:textStyle="bold"
                 android:textColor="@color/black"/>
@@ -67,7 +45,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@android:color/transparent"
-                android:hint="Enter your username"
+                android:hint="Enter your email"
                 android:padding="5dp"
                 android:textColor="@color/purple" />
         </LinearLayout>
@@ -79,7 +57,7 @@
             android:orientation="vertical"
             android:background="@drawable/input_field_background"
             android:padding="15dp"
-            android:layout_marginTop="10dp">
+            android:layout_marginTop="25dp">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -123,7 +101,7 @@
             android:text="SIGN IN"
             android:backgroundTint="@color/purple"
             android:textColor="@color/white"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="35dp"
             android:gravity="center"
             android:layout_gravity="center"/>
 
@@ -134,7 +112,7 @@
             android:layout_height="wrap_content"
             android:text="Forgot Password?"
             android:backgroundTint="@color/white"
-            android:textColor="@color/purple"
+            android:textColor="@color/black"
             android:textSize="14sp"
             android:layout_marginTop="5dp"
             android:gravity="center"

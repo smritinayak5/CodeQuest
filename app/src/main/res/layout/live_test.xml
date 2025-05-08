@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/black"
-    tools:context=".WelcomeActivity">
+    android:background="@android:color/black">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -21,6 +20,7 @@
             android:padding="16dp">
 
             <TextView
+                android:id="@+id/questionTitleTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Test 1 : Basic"
@@ -29,6 +29,7 @@
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/languageTitleTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
@@ -37,6 +38,7 @@
                 android:textSize="24sp" />
 
             <TextView
+                android:id="@+id/questionDescriptionTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"

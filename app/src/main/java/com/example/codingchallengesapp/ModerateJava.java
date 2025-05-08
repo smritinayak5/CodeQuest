@@ -8,18 +8,24 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+
 public class ModerateJava extends AppCompatActivity implements View.OnClickListener {
 
     private CardView test1, test2, test3, test4, test5;
+    private FirebaseFirestore db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.java_moderate);  // Correct layout file
+        setContentView(R.layout.java_moderate);  // Layout file with 5 test cards
+
         initViews();
         setClickListeners();
-    }
 
+        db = FirebaseFirestore.getInstance(); // Initialize Firestore
+    }
 
     private void initViews() {
         test1 = findViewById(R.id.test1);
@@ -39,26 +45,44 @@ public class ModerateJava extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View view) {
-        int id = view.getId();
+        int testNumber = -1;
 
-        if (id == R.id.test1) {
-            showToast("Starting Test 1");
-            // Launch the TestLive Activity for Test 1
-            Intent intent = new Intent(ModerateJava.this, TestLive.class);
-            startActivity(intent);
-        } else if (id == R.id.test2) {
-            showToast("Starting Test 2");
-        } else if (id == R.id.test3) {
-            showToast("Starting Test 3");
-        } else if (id == R.id.test4) {
-            showToast("Starting Test 4");
-        } else if (id == R.id.test5) {
-            showToast("Starting Test 5");
+        if (view.getId() == R.id.test1) testNumber = 1;
+        else if (view.getId() == R.id.test2) testNumber = 2;
+        else if (view.getId() == R.id.test3) testNumber = 3;
+        else if (view.getId() == R.id.test4) testNumber = 4;
+        else if (view.getId() == R.id.test5) testNumber = 5;
+
+        if (testNumber != -1) {
+            fetchQuestion(testNumber);
         }
     }
 
+    private void fetchQuestion(int testNumber) {
+        Toast.makeText(this, "Loading Test " + testNumber, Toast.LENGTH_SHORT).show();
 
-    private void showToast(String message) {
-        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+        db.collection("questions")
+                .whereEqualTo("difficulty", "Moderate")
+                .whereEqualTo("test_number", testNumber)
+                .whereArrayContains("language", "Java")
+                .get()
+                .addOnSuccessListener(queryDocumentSnapshots -> {
+                    if (!queryDocumentSnapshots.isEmpty()) {
+                        DocumentSnapshot doc = queryDocumentSnapshots.getDocuments().get(0);
+                        String title = doc.getString("title");
+                        String question = doc.getString("question");
+
+                        Intent intent = new Intent(ModerateJava.this, TestLive.class);
+                        intent.putExtra("title", title);
+                        intent.putExtra("question", question);
+                        intent.putExtra("language", "Java"); // Pass language to TestLive
+                        startActivity(intent);
+                    } else {
+                        Toast.makeText(this, "No question found for Test " + testNumber, Toast.LENGTH_SHORT).show();
+                    }
+                })
+                .addOnFailureListener(e ->
+                        Toast.makeText(ModerateJava.this, "Error loading question: " + e.getMessage(), Toast.LENGTH_LONG).show()
+                );
     }
 }

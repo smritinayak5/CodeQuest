@@ -123,5 +123,15 @@
             android:textColor="#444"
             android:paddingVertical="16dp"
             android:layout_marginLeft="16dp"/>
+
+        <TextView
+            android:id="@+id/questions_add"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add Questions"
+            android:textSize="16sp"
+            android:textColor="#444"
+            android:paddingVertical="16dp"
+            android:layout_marginLeft="16dp"/>
     </LinearLayout>
 </LinearLayout>
